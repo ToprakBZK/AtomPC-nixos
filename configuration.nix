@@ -81,6 +81,7 @@
   environment.systemPackages = with pkgs; [
     git
     fastfetch
+    deezer-desktop
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     
     (prismlauncher.override {
