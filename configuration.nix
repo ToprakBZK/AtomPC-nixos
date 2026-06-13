@@ -28,7 +28,12 @@
     LC_TELEPHONE = "tr_TR.UTF-8";
     LC_TIME = "tr_TR.UTF-8";
   };
-
+  
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    jetbrains-mono 
+  ]; 
+ 
   services.xserver.enable = true;
   
   # --- GİRİŞ VE MASAÜSTÜ YÖNETİMİ ---
@@ -93,6 +98,7 @@
     waybar
     rofi
     swww
+    adwaita-icon-theme
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     
     (prismlauncher.override {
