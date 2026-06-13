@@ -84,4 +84,8 @@
 
   system.stateVersion = "26.05"; 
 
+  environment.shellAliases = {
+    nixup = "cd ~/atomic && git add . && sudo nixos-rebuild switch --flake ~/atomic/#AtomPC && git commit -m \"Sistem Güncellemesi: $(date +'%d-%m-%Y %H:%M')\" && git push origin master";
+  };
+
 }
