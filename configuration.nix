@@ -1,25 +1,22 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "AtomPC"; 
   networking.networkmanager.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "Europe/Istanbul";
 
   i18n.defaultLocale = "tr_TR.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "tr_TR.UTF-8";
     LC_IDENTIFICATION = "tr_TR.UTF-8";
@@ -33,9 +30,11 @@
   };
 
   services.xserver.enable = true;
-
-  services.displayManager.ly.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  
+  # --- GİRİŞ VE MASAÜSTÜ YÖNETİMİ ---
+  services.displayManager.ly.enable = true; # Hafif TUI Giriş Ekranı aktif
+  # services.desktopManager.plasma6.enable = true; # KDE Plasma'yı tamamen kapattık!
+  programs.hyprland.enable = true; # Canavarımız aktif
 
   services.xserver.xkb = {
     layout = "tr";
@@ -43,7 +42,6 @@
   };
 
   console.keyMap = "trq";
-
   services.printing.enable = true;
 
   services.pulseaudio.enable = false;
@@ -76,8 +74,18 @@
 
   programs.firefox.enable = false;
   nixpkgs.config.allowUnfree = true;
-  programs.steam = {enable = true;
-};
+  
+  programs.steam = {
+    enable = true;
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
+  environment.variables = {
+    XCURSOR_SIZE = "24";
+  };  
 
   environment.systemPackages = with pkgs; [
     git
@@ -98,7 +106,6 @@
   system.stateVersion = "26.05"; 
 
   environment.shellAliases = {
-    nixup = "cd ~/atomic && git add . && sudo nixos-rebuild switch --flake ~/atomic/#AtomPC && git commit -m \"Sistem Güncellemesi: $(date +'%d-%m-%Y %H:%M')\" && git push origin master && cd -";
+    nixup = "cd ~/atomic && git add . && sudo nixos-rebuild switch --flake ~/atomic/#AtomPC && git commit -m \"Sistem Guncellemesi: $(date +'%d-%m-%Y %H:%M')\" && git push origin master && cd -";
   };
-
 }
