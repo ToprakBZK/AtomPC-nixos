@@ -68,7 +68,6 @@
       tealdeer
       xclip
       bat
-      rofi
     ];
   };
 
@@ -91,6 +90,9 @@
     git
     fastfetch
     deezer-desktop
+    waybar
+    rofi
+    swww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     
     (prismlauncher.override {
