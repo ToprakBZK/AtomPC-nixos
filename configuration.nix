@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -63,12 +63,10 @@
       kdePackages.kate
       thunderbird
       mpv
-      fastfetch
       btop
       htop
       kitty
       vim
-      git
       tealdeer
       xclip
       bat
@@ -79,6 +77,9 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+  git
+  fastfetch
+  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   system.stateVersion = "26.05"; 
