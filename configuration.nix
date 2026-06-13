@@ -79,9 +79,18 @@
 };
 
   environment.systemPackages = with pkgs; [
-  git
-  fastfetch
-  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    git
+    fastfetch
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    
+    (prismlauncher.override {
+      jdks = [
+        jdk25
+        jdk21
+        jdk17
+        jdk8
+      ];
+    })
   ];
 
   system.stateVersion = "26.05"; 
