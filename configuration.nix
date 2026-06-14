@@ -73,6 +73,7 @@
       tealdeer
       xclip
       bat
+      chromium
     ];
   };
 
