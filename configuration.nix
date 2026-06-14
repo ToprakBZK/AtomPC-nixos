@@ -101,7 +101,8 @@
     adwaita-icon-theme
     kdePackages.dolphin
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    
+    inputs.helium.packages.${pkgs.system}.default    
+
     (prismlauncher.override {
       jdks = [
         jdk25
