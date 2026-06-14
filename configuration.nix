@@ -81,6 +81,7 @@
   
   programs.steam = {
     enable = true;
+    extraCompatPackages = [ ];
   };
 
   environment.sessionVariables = {
