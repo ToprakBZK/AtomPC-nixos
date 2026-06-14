@@ -36,11 +36,11 @@
  
   services.xserver.enable = true;
   
-  # --- GİRİŞ VE MASAÜSTÜ YÖNETİMİ ---
-  services.displayManager.ly.enable = true; # Hafif TUI Giriş Ekranı aktif
-  # services.desktopManager.plasma6.enable = true; # KDE Plasma'yı tamamen kapattık!
-  programs.hyprland.enable = true; # Canavarımız aktif
-
+  services.displayManager.ly.enable = true; 
+  programs.hyprland.enable = true; 
+  
+  programs.dconf.enable = true;
+ 
   services.xserver.xkb = {
     layout = "tr";
     variant = "";
@@ -89,6 +89,7 @@
 
   environment.variables = {
     XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "Adwaita";
   };  
 
   environment.systemPackages = with pkgs; [
