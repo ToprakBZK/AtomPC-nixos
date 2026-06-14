@@ -99,6 +99,7 @@
     rofi
     swww
     adwaita-icon-theme
+    kdePackages.dolphin
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     
     (prismlauncher.override {
