@@ -57,7 +57,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
+ 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true; 
+  };
+  
   users.users."atom" = {
     isNormalUser = true;
     description = "Atom BAMya";
@@ -91,6 +96,7 @@
   environment.variables = {
     XCURSOR_SIZE = "24";
     XCURSOR_THEME = "Adwaita";
+    GDK_SCALE = "1.5";
   };  
 
   environment.systemPackages = with pkgs; [
