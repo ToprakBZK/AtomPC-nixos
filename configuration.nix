@@ -97,7 +97,7 @@
     deezer-desktop
     waybar
     rofi
-    swww
+    awww
     adwaita-icon-theme
     kdePackages.dolphin
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
